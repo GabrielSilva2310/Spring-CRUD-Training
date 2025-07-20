@@ -1,5 +1,6 @@
 package dto;
 
+import com.CrudForTraining.demo.entities.Task;
 import com.CrudForTraining.demo.enums.TaskStatus;
 
 public class TaskDTO {
@@ -21,6 +22,17 @@ public class TaskDTO {
 		this.status = status;
 		this.user = user;
 	}
+	
+	public TaskDTO(Task task) {
+		id = task.getId();
+		title = task.getTitle();
+		description = task.getDescription();
+		status = task.getStatus();
+		user = new UserDTO(task.getUser());
+	}
+	
+	
+	
 
 	public Long getId() {
 		return id;

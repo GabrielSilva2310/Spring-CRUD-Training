@@ -34,6 +34,7 @@ public class User {
 		this.email = email;
 	}
 
+	
 	public Long getId() {
 		return id;
 	}
@@ -42,10 +43,22 @@ public class User {
 		return name;
 	}
 
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	public String getEmail() {
 		return email;
 	}
 
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public List<Task> getTasks() {
+		return tasks;
+	}
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);

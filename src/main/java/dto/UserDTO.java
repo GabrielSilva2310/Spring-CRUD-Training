@@ -3,6 +3,9 @@ package dto;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.CrudForTraining.demo.entities.Task;
+import com.CrudForTraining.demo.entities.User;
+
 public class UserDTO {
 	
 	private Long id;
@@ -20,6 +23,17 @@ public class UserDTO {
 		this.name = name;
 		this.email = email;
 	}
+	
+	public UserDTO(User user) {
+		id = user.getId();
+		name = user.getName();
+		email = user.getEmail();
+		for(Task task : user.getTasks()) {
+			TaskDTO dto= new TaskDTO(task);
+			tasks.add(dto);
+		}
+	}
+
 
 	public Long getId() {
 		return id;
