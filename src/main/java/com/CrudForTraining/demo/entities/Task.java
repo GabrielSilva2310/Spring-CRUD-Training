@@ -1,5 +1,7 @@
 package com.CrudForTraining.demo.entities;
 
+import java.util.Objects;
+
 import com.CrudForTraining.demo.enums.TaskStatus;
 
 import jakarta.persistence.Entity;
@@ -68,6 +70,29 @@ public class Task {
 	public User getUser() {
 		return user;
 	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Task other = (Task) obj;
+		return Objects.equals(id, other.id);
+	}
+	
+	
 	
 	
 	
